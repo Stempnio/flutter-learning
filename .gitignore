@@ -1,1 +1,5 @@
 .DS_Store
+
+# Firebase
+PasswordKeeper/android/app/google-services.json
+PasswordKeeper/ios/Runner/GoogleService-Info.plist
