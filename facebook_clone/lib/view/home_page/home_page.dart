@@ -20,25 +20,59 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: ListView.builder(itemBuilder: (context, index) {
-        if (index == 0) {
-          return Column(
-            children: [
-              const TopBar(),
-              _blackDivider,
-              const Reels(),
-              _blackDivider,
-            ],
-          );
-        } else {
-          return Column(
-            children: [
-              const Post(),
-              _blackDivider,
-            ],
-          );
-        }
-      }),
+      child: Scaffold(
+        body: NestedScrollView(
+          floatHeaderSlivers: true,
+          headerSliverBuilder: (context, innerBoxIsScrolled) => [
+            const SliverAppBar(
+              floating: true,
+              backgroundColor: Colors.transparent,
+              title: Text(
+                "facebook",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 25,
+                ),
+              ),
+              actions: [
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                  child: Icon(
+                    Icons.search,
+                    size: 30,
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                  child: Icon(
+                    Icons.messenger,
+                    size: 25,
+                  ),
+                ),
+              ],
+            )
+          ],
+          body: ListView.builder(itemBuilder: (context, index) {
+            if (index == 0) {
+              return Column(
+                children: [
+                  const TopBar(),
+                  _blackDivider,
+                  const Reels(),
+                  _blackDivider,
+                ],
+              );
+            } else {
+              return Column(
+                children: [
+                  const Post(),
+                  _blackDivider,
+                ],
+              );
+            }
+          }),
+        ),
+      ),
     );
   }
 }

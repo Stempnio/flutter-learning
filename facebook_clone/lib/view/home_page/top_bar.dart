@@ -12,27 +12,6 @@ class TopBar extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Row(
-            children: const [
-              Text("facebook",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 25,
-                  )),
-              Spacer(),
-              Icon(
-                Icons.search,
-                size: 30,
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Icon(
-                Icons.messenger,
-                size: 25,
-              ),
-            ],
-          ),
           const SizedBox(
             height: 15,
           ),
