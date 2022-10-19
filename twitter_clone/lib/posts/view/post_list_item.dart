@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:twitter_clone/posts/posts.dart';
 
-class PostView extends StatelessWidget {
-  const PostView({Key? key}) : super(key: key);
+class PostListItem extends StatelessWidget {
+  const PostListItem({Key? key, required this.post}) : super(key: key);
+  final Post post;
 
   @override
   Widget build(BuildContext context) {
@@ -21,11 +24,11 @@ class PostView extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
+                    Wrap(
                       // mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          "Author",
+                          post.user,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
@@ -33,20 +36,19 @@ class PostView extends StatelessWidget {
                         SizedBox(
                           width: 10,
                         ),
-                        Text("@Author"),
+                        Text("@${post.user}"),
                         SizedBox(
                           width: 10,
                         ),
                         Text(
-                          "date",
+                          DateFormat.yMd().add_jm().format(post.date),
                         ),
                       ],
                     ),
                     SizedBox(
                       height: 10,
                     ),
-                    Text(
-                        "asdf asd fasd fasdf as dfa sdf asdf as dfa asd fa sdf asdf as df asdf asf as df asdf sadf fsa d"),
+                    Text(post.body),
                     SizedBox(
                       height: 10,
                     ),
@@ -57,19 +59,19 @@ class PostView extends StatelessWidget {
                         SizedBox(
                           width: 5,
                         ),
-                        Text("20"),
+                        Text("${post.comments}"),
                         Spacer(),
                         Icon(Icons.share),
                         SizedBox(
                           width: 5,
                         ),
-                        Text("20"),
+                        Text("${post.shares}"),
                         Spacer(),
                         Icon(Icons.favorite_border),
                         SizedBox(
                           width: 5,
                         ),
-                        Text("50"),
+                        Text("${post.likes}"),
                         Spacer(),
                         Icon(Icons.ios_share_rounded),
                         Spacer(),
@@ -83,52 +85,5 @@ class PostView extends StatelessWidget {
         ),
       ),
     );
-    // return SafeArea(
-    //   child: Row(
-    //     crossAxisAlignment: CrossAxisAlignment.start,
-    //     children: [
-    //       Padding(
-    //         padding: const EdgeInsets.all(8.0),
-    //         child: CircleAvatar(
-    //           child: Icon(Icons.abc),
-    //         ),
-    //       ),
-    //       Padding(
-    //         padding: const EdgeInsets.all(8.0),
-    //         child: Column(
-    //           crossAxisAlignment: CrossAxisAlignment.start,
-    //           children: [
-    //             Row(
-    //               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    //               children: [
-    //                 Text(
-    //                   "Author",
-    //                   style: TextStyle(
-    //                     fontWeight: FontWeight.bold,
-    //                   ),
-    //                 ),
-    //                 Text("@Author"),
-    //                 Text(
-    //                   "date",
-    //                 ),
-    //               ],
-    //             ),
-    //             Text("Sample text"),
-    //             Row(
-    //               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-    //               children: [
-    //                 Icon(Icons.messenger),
-    //                 // Spacer(),
-    //                 Icon(Icons.favorite_border),
-    //                 // Spacer(),
-    //                 Icon(Icons.ios_share_rounded),
-    //               ],
-    //             ),
-    //           ],
-    //         ),
-    //       ),
-    //     ],
-    //   ),
-    // );
   }
 }
