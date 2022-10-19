@@ -1,5 +1,8 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:math';
+import 'package:random_date/random_date.dart';
+import 'package:username_gen/username_gen.dart';
 
 import 'package:bloc/bloc.dart';
 import 'package:bloc_concurrency/bloc_concurrency.dart';
@@ -68,9 +71,14 @@ class PostBloc extends Bloc<PostEvent, PostState> {
       return body.map((dynamic json) {
         final map = json as Map<String, dynamic>;
         return Post(
+          user: UsernameGen().generate(),
           id: map['id'] as int,
           title: map['title'] as String,
           body: map['body'] as String,
+          comments: Random().nextInt(20) + 10,
+          likes: Random().nextInt(20) + 10,
+          shares: Random().nextInt(5) + 10,
+          date: RandomDate.withRange(2019, 2022).random(),
         );
       }).toList();
     }
