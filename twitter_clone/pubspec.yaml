@@ -13,7 +13,10 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^8.1.1
   http: ^0.13.0
+  intl: ^0.17.0
+  random_date: ^0.0.7
   stream_transform: ^2.0.0
+  username_gen: ^1.0.4
 
 dev_dependencies:
   bloc_test: ^9.0.0
