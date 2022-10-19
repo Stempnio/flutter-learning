@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:twitter_clone/home/home.dart';
+import 'package:twitter_clone/bottom_navigator/view/bottom_navigator.dart';
 import 'package:twitter_clone/theme/theme.dart';
 
 class App extends StatelessWidget {
@@ -11,7 +11,7 @@ class App extends StatelessWidget {
     ThemeCubit themeCubit = BlocProvider.of<ThemeCubit>(context, listen: true);
     return MaterialApp(
       theme: themeCubit.isDark ? ThemeData.dark() : ThemeData.light(),
-      home: HomePage(),
+      home: BottomNavigatorPage(),
     );
   }
 }
