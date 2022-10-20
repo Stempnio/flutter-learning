@@ -16,6 +16,11 @@ class BottomNavigatorPage extends StatelessWidget {
       bottomNavigationBar: BlocBuilder<CurrentPageCubit, CurrentPageState>(
         builder: (context, state) {
           return BottomNavigationBar(
+            selectedItemColor: Colors.white,
+            showSelectedLabels: false,
+            selectedIconTheme: IconThemeData(
+              size: 30,
+            ),
             currentIndex: state.currentIndex,
             onTap: (index) {
               BlocProvider.of<CurrentPageCubit>(context).changePage(index);
