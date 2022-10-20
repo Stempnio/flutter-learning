@@ -7,9 +7,32 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: PostsPage(),
+      appBar: AppBar(
+        centerTitle: true,
+        title: Icon(
+          Icons.flight_takeoff,
+          color: Colors.blueAccent,
+          size: 45,
+        ),
+        leadingWidth: 100,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Icon(Icons.star_border_purple500_outlined),
+          ),
+        ],
+        leading: Row(
+          children: [
+            SizedBox(
+              width: 20,
+            ),
+            CircleAvatar(
+              child: Icon(Icons.person_outline_outlined),
+            ),
+          ],
+        ),
       ),
+      body: PostsPage(),
     );
   }
 }
