@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:twitter_clone/posts/posts.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -18,16 +19,19 @@ class HomePage extends StatelessWidget {
             child: AppBar(
               backgroundColor: Colors.black.withOpacity(0.2),
               centerTitle: true,
-              title: Icon(
-                Icons.flight_takeoff,
+              title: FaIcon(
+                FontAwesomeIcons.twitter,
+                size: 40,
                 color: Colors.blueAccent,
-                size: 45,
               ),
               leadingWidth: 100,
               actions: [
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Icon(Icons.star_border_purple500_outlined),
+                  child: Icon(
+                    Icons.star_border_purple500_outlined,
+                    size: 30,
+                  ),
                 ),
               ],
               leading: Row(
@@ -36,7 +40,11 @@ class HomePage extends StatelessWidget {
                     width: 20,
                   ),
                   CircleAvatar(
-                    child: Icon(Icons.person_outline_outlined),
+                    backgroundColor: Colors.white60,
+                    child: Icon(
+                      Icons.person,
+                      size: 40,
+                    ),
                   ),
                 ],
               ),
@@ -45,6 +53,11 @@ class HomePage extends StatelessWidget {
         ),
       ),
       body: PostsPage(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: Colors.blueAccent,
+        child: Icon(Icons.add),
+      ),
     );
   }
 }
